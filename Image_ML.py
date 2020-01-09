@@ -39,7 +39,6 @@ def dataload(args):
     setattr(args, 'Y', Y)
     setattr(args, 'namelist', namelist)
 def train(args):
-    # 切分训练集和测试集
     dataload(args)
     X_train, X_test, y_train, y_test = train_test_split(args.X, args.Y,test_size=args.test_size, random_state=1)
     from sklearn.naive_bayes import BernoulliNB

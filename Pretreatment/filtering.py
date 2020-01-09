@@ -47,8 +47,7 @@ def butterworth_high_pass_kernel(img,D0=5,n=1):
     return np.uint8(dst)
 def filter2D(image):
     gaussian =cv2.getGaussianKernel(5,10)
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    gray=cv2.filter2D(gray,-1,gaussian)
+    gray=cv2.filter2D(image,-1,gaussian)
     return gray
 def sepFilter2D(image):
     M = np.array([-1, 2, -1])
@@ -86,6 +85,3 @@ pip install opencv-contrib-python
 # cv2.xmingproc.jointBilateralFilter(joint,src,d,sigmaColor,sigmaSpace,borderType)
 # cv2.ximgproc.guidedFilter(guide,src,radius,eps,dDepth)
 # signal.convolve2d(img,kernel,mode,boundary,fillvalue)
-# cv2.Sobel()
-# cv2.Schar()
-# cv2.Laplacian()
