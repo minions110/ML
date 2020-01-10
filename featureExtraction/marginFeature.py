@@ -3,8 +3,6 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 import os
-
-
 class Hog_descriptor():
     def __init__(self, img, cell_size=16, bin_size=8):
         self.img = img
@@ -91,20 +89,24 @@ class Hog_descriptor():
                     cv2.line(image, (y1, x1), (y2, x2), int(255 * math.sqrt(magnitude)))
                     angle += angle_gap
         return image
+
+
+def Hogdescriptor(img):
+    winSize = (64,64)
+    blockSize = (16,16)
+    blockStride = (8,8)
+    cellSize = (8,8)
+    nbins = 9
+    derivAperture = 1
+    winSigma = 4.
+    histogramNormType = 0
+    L2HysThreshold = 2.0000000000000001e-01
+    gammaCorrection = 0
+    nlevels = 64
+    hog = cv2.HOGDescriptor(winSize,blockSize,blockStride,cellSize,nbins,derivAperture,winSigma,
+                            histogramNormType,L2HysThreshold,gammaCorrection,nlevels)
+    feature=hog.compute(img)
+    return feature
+
 if __name__ == "__main__":
-    imgpath='G:/data/met'
-    imglist=os.listdir(imgpath)
-    for file in imglist:
-        if '.jpg' in file:
-            file='G:/data/met/matchHOG/image_180704150028_6693_View1_00.jpg'
-            img = cv2.imread(os.path.join(imgpath,file), cv2.IMREAD_GRAYSCALE)
-            # img = cv2.resize(img, (256, 256), interpolation=cv2.INTER_CUBIC)
-            hog = Hog_descriptor(img, cell_size=8, bin_size=8)
-            vector, image = hog.extract()
-            print (np.array(vector).shape)
-            plt.figure()
-            plt.subplot(1, 2, 1)
-            plt.imshow(img)
-            plt.subplot(1, 2, 2)
-            plt.imshow(image, cmap=plt.cm.gray)
-            plt.show()
+    pass

@@ -47,8 +47,8 @@ def butterworth_high_pass_kernel(img,D0=5,n=1):
     return np.uint8(dst)
 def filter2D(image):
     gaussian =cv2.getGaussianKernel(5,10)
-    gray=cv2.filter2D(image,-1,gaussian)
-    return gray
+    img=cv2.filter2D(image,-1,gaussian)
+    return img
 def sepFilter2D(image):
     M = np.array([-1, 2, -1])
     G = cv2.getGaussianKernel(ksize=3, sigma=-1)
@@ -66,7 +66,8 @@ def boxFilter(image):
     return cv2.boxFilter(image, -1, (2, 2), normalize=1)
 def bilateralFilter(image):
     return cv2.bilateralFilter(image,9,75,75)
-
+def MeanShift(image):
+    return cv2.pyrMeanShiftFiltering(image, 21, 51)
 if __name__ == "__main__":
     img=cv2.imread('G:/data/met/matchHOG/image_180704150028_6693_View1_00.jpg')
     img1=Ideal_Hfiltering(img.copy(),D0=30)
