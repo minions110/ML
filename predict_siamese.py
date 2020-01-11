@@ -39,7 +39,7 @@ class SiameseNetwork:
 
     '''加载词典'''
     def load_worddict(self):
-        vocabs = [i.replace('\n','') for i in open(self.vocab_path)]
+        vocabs = [i.replace('\n','') for i in open(self.vocab_path,encoding='gb18030',errors='ignore')]
         word_dict = {wd: index for index, wd in enumerate(vocabs)}
         print(len(vocabs))
         return word_dict
@@ -54,7 +54,7 @@ class SiameseNetwork:
     '''加载预训练词向量'''
     def load_pretrained_embedding(self):
         embeddings_dict = {}
-        with open(self.embedding_file, 'r') as f:
+        with open(self.embedding_file, 'r',encoding='gb18030',errors='ignore') as f:
             for line in f:
                 values = line.strip().split(' ')
                 if len(values) < 300:
@@ -137,8 +137,8 @@ class SiameseNetwork:
 
     '''测试模型'''
     def test(self):
-        s1 = '请问您需要办理什么业务？'
-        s2 = '请问您需要办理什么业务？'
+        s1 = '微信消费算吗'
+        s2 = '还有多少钱没还'
         res = self.predict(s1, s2)
         print(res)
         return

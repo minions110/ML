@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-# coding: utf-8
-# File: siamese_train.py
-# Author: lhy<lhy_in_blcu@126.com,https://huangyong.github.io>
-# Date: 18-5-23
-
 import numpy as np
 from keras import backend as K
 from keras.preprocessing.sequence import pad_sequences
@@ -39,7 +34,7 @@ class SiameseNetwork:
         len_list = []
         max_length = 0
         cover_rate = 0.0
-        for line in open(self.train_path):
+        for line in open(self.train_path,encoding='gb18030',errors='ignore'):
             line = line.strip().split('	')
             if not line:
                 continue
@@ -73,7 +68,7 @@ class SiameseNetwork:
         sample_x_left = []
         sample_x_right = []
         vocabs = {'UNK'}
-        for line in open(self.train_path):
+        for line in open(self.train_path,encoding='gb18030',errors='ignore'):
             line = line.rstrip().split('\t')
             if not line:
                 continue
@@ -109,14 +104,14 @@ class SiameseNetwork:
     '''保存字典文件'''
     def write_file(self, wordlist, filepath):
         print(len(wordlist))
-        with open(filepath, 'w+') as f:
+        with open(filepath, 'w+',encoding='gb18030',errors='ignore') as f:
             for wd in wordlist:
                 f.write(wd + '\n')
 
     '''加载预训练词向量'''
     def load_pretrained_embedding(self):
         embeddings_dict = {}
-        with open(self.embedding_file, 'r') as f:
+        with open(self.embedding_file, 'r',encoding='gb18030',errors='ignore') as f:
             for line in f:
                 values = line.strip().split(' ')
                 if len(values) < 300:
