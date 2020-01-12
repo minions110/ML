@@ -71,7 +71,7 @@ def unsuper(args):
     util.unsuper_decode(clf.labels_,args)
 
 if __name__ == "__main__":
-    args = argparse.ArgumentParser(description='Image ML')
+    args = argparse.ArgumentParser(description='CV_ML')
     trainpath=['G:/data/ML_samples/metalbottle sample/sample','G:/data/ML_samples/metalbottle sample/neg sample']
     testpath='G:\data\met'
     setattr(args, 'trainpath', trainpath)

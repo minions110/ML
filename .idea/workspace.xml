@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4218736d-a122-4b4a-af0e-dd1ce618cf95" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/img_deal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/img_deal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/sentence_match.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/token_vec_300.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/tokenvec_bilstm2_siamese_model.h5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/vocab.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/predict_siamese.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict_siamese.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/siamese_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/siamese_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_ML.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_ML.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NLP_ML.py" beforeDir="false" afterPath="$PROJECT_DIR$/NLP_ML.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/train.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predict_siamese.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/siamese_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/timestamps.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/timestamps.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/vocab.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/vocab.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weight/tokenvec_bilstm2_siamese_model.h5" beforeDir="false" afterPath="$PROJECT_DIR$/weight/tokenvec_bilstm2_siamese_model.h5" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +40,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="G:/work_tool/_12306-master" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
-  <component name="RunManager" selected="Python.predict_siamese">
+  <component name="RunManager" selected="Python.sentence_match">
     <configuration name="CV_ML" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="img_deal" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,28 +87,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="filtering" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="img_deal" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Pretreatment" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Pretreatment/filtering.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="predict_siamese" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="img_deal" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,6 +101,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/predict_siamese.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sentence_match" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="img_deal" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/sentence_match.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sentence_match" />
         <item itemvalue="Python.predict_siamese" />
         <item itemvalue="Python.siamese_model" />
         <item itemvalue="Python.CV_ML" />
         <item itemvalue="Python.Image_ML" />
-        <item itemvalue="Python.filtering" />
       </list>
     </recent_temporary>
   </component>
@@ -183,6 +186,7 @@
       <option name="presentableId" value="Default" />
       <updated>1577436559945</updated>
       <workItem from="1578700250960" duration="7549000" />
+      <workItem from="1578836986679" duration="6067000" />
     </task>
     <servers />
   </component>
@@ -194,46 +198,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="550" y="166" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578705460288" />
-    <state width="1478" height="252" key="GridCell.Tab.0.bottom" timestamp="1578753844295">
+    <state width="1478" height="252" key="GridCell.Tab.0.bottom" timestamp="1578843071285">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="252" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578753844295" />
-    <state width="1478" height="252" key="GridCell.Tab.0.center" timestamp="1578753844295">
+    <state width="1478" height="252" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578843071285" />
+    <state width="1478" height="252" key="GridCell.Tab.0.center" timestamp="1578843071284">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="252" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578753844295" />
-    <state width="1478" height="252" key="GridCell.Tab.0.left" timestamp="1578753844295">
+    <state width="1478" height="252" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1578843071284" />
+    <state width="1478" height="252" key="GridCell.Tab.0.left" timestamp="1578843071284">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="252" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578753844295" />
-    <state width="1478" height="252" key="GridCell.Tab.0.right" timestamp="1578753844295">
+    <state width="1478" height="252" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1578843071284" />
+    <state width="1478" height="252" key="GridCell.Tab.0.right" timestamp="1578843071284">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="252" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578753844295" />
-    <state width="1478" height="252" key="GridCell.Tab.1.bottom" timestamp="1578753844296">
+    <state width="1478" height="252" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1578843071284" />
+    <state width="1478" height="252" key="GridCell.Tab.1.bottom" timestamp="1578843071286">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="252" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578753844296" />
-    <state width="1478" height="252" key="GridCell.Tab.1.center" timestamp="1578753844296">
+    <state width="1478" height="252" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1578843071286" />
+    <state width="1478" height="252" key="GridCell.Tab.1.center" timestamp="1578843071286">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="252" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1578753844296" />
-    <state width="1478" height="252" key="GridCell.Tab.1.left" timestamp="1578753844295">
+    <state width="1478" height="252" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1578843071286" />
+    <state width="1478" height="252" key="GridCell.Tab.1.left" timestamp="1578843071286">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="252" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1578753844295" />
-    <state width="1478" height="252" key="GridCell.Tab.1.right" timestamp="1578753844296">
+    <state width="1478" height="252" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1578843071286" />
+    <state width="1478" height="252" key="GridCell.Tab.1.right" timestamp="1578843071286">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1478" height="252" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1578753844296" />
-    <state x="270" y="54" key="SettingsEditor" timestamp="1578705561156">
+    <state width="1478" height="252" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1578843071286" />
+    <state x="270" y="54" key="SettingsEditor" timestamp="1578842265201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1578705561156" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1578700323699">
+    <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1578842265201" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1578836988692">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578700323699" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1578836988692" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -276,7 +280,8 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ML$CV_ML.coverage" NAME="CV_ML Coverage Results" MODIFIED="1578705653914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ML$Image_ML.coverage" NAME="Image_ML Coverage Results" MODIFIED="1578705606311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ML$siamese_model.coverage" NAME="siamese_model Coverage Results" MODIFIED="1578738285968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/ML$predict_siamese.coverage" NAME="predict_siamese Coverage Results" MODIFIED="1578739563623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ML$sentence_match.coverage" NAME="sentence_match Coverage Results" MODIFIED="1578842414302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+    <SUITE FILE_PATH="coverage/ML$siamese_model.coverage" NAME="siamese_model Coverage Results" MODIFIED="1578838720732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ML$predict_siamese.coverage" NAME="predict_siamese Coverage Results" MODIFIED="1578839036946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
