@@ -22,7 +22,7 @@ def dataload(args):
     if args.model=='train':
         for idx, path in enumerate(args.trainpath):
             datalist=os.listdir(path)
-            for file in random.sample(datalist,20):
+            for file in random.sample(datalist,200):
                 image = cv2.imread(os.path.join(path, file))
                 preimage = base_pretreat.run(image, args)
                 hist = base_feature.run(preimage, args)
@@ -64,27 +64,29 @@ def test(args):
         softcls=fun.predict_proba(args.X)
         util.test_decode(hardcls,softcls,args)
 def unsuper(args):
-    setattr(args, 'minilist', args.testpath)
-    dataload(args)
-    print('training-------------------')
-    clf = sklearn_ML[args.arith].fit(args.X, args.clsnum)
-    util.unsuper_decode(clf.labels_,args)
+    for minilist in util.split_testdata(args):
+        setattr(args, 'minilist', minilist)
+        dataload(args)
+        print('training-------------------')
+        clf = sklearn_ML[args.arith].fit(args.X)
+        util.unsuper_decode(clf.labels_,args)
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser(description='Image ML')
-    trainpath=['G:/data/ML_samples/metalbottle sample/sample','G:/data/ML_samples/metalbottle sample/neg sample']
+    trainpath=['G:/data/ML_samples/plasticbottle sample/sample','G:/data/ML_samples/plasticbottle sample/neg sample']
     testpath='G:\data\met'
     setattr(args, 'trainpath', trainpath)
     setattr(args, 'testpath', testpath)
-    setattr(args, 'cls_name', 'metalbottle')
+    setattr(args, 'cls_name', 'plasticbottle')
     setattr(args, 'split_fold', ['match','nomatch'])
-    setattr(args, 'pretreat', ['MeanShift'])
+    setattr(args, 'pretreat', ['filter2D'])
     setattr(args, 'feature',['Hog'])
-    setattr(args, 'minibatch', 500)
+    setattr(args, 'minibatch', 10000)
     setattr(args, 'test_size', 0.2)
-    setattr(args, 'arith', 'LinearSVC')
+    setattr(args, 'arith', 'KMeans')
     setattr(args, 'cls_num', 2)
-    setattr(args, 'model', 'train')
+    setattr(args, 'model', 'unsuper')
+    setattr(args,'deal','move')
     if args.model != 'train':
         util.creat_fold(args)
     eval(args.model)(args)

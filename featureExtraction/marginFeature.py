@@ -1,8 +1,17 @@
 import cv2
+import os
 import numpy as np
 import math
+from skimage.feature import corner_harris, corner_peaks
+from skimage.feature import local_binary_pattern
+from skimage.feature import hog
+from skimage.feature import ORB
+from skimage import io
+from skimage import data, io,data_dir,filters, feature
+from skimage.exposure import equalize_hist
+import numpy as np
 import matplotlib.pyplot as plt
-import os
+import cv2
 class Hog_descriptor():
     def __init__(self, img, cell_size=16, bin_size=8):
         self.img = img
@@ -89,24 +98,32 @@ class Hog_descriptor():
                     cv2.line(image, (y1, x1), (y2, x2), int(255 * math.sqrt(magnitude)))
                     angle += angle_gap
         return image
+def Hog_descriptor(image):
+    normalised_blocks, hog_image = hog(image, orientations=9, pixels_per_cell=(8, 8), cells_per_block=(8, 8), visualise=True)
+    return hog_image
+def Lbp_descriptor(image):
+    lbp = local_binary_pattern(image, 8, 1)
+    return lbp
 
 
-def Hogdescriptor(img):
-    winSize = (64,64)
-    blockSize = (16,16)
-    blockStride = (8,8)
-    cellSize = (8,8)
-    nbins = 9
-    derivAperture = 1
-    winSigma = 4.
-    histogramNormType = 0
-    L2HysThreshold = 2.0000000000000001e-01
-    gammaCorrection = 0
-    nlevels = 64
-    hog = cv2.HOGDescriptor(winSize,blockSize,blockStride,cellSize,nbins,derivAperture,winSigma,
-                            histogramNormType,L2HysThreshold,gammaCorrection,nlevels)
-    feature=hog.compute(img)
-    return feature
-
+def edges_corners(image):
+    mandrill = equalize_hist(image)
+    corners = corner_peaks(corner_harris(mandrill), min_distance=1)
+    return corners
 if __name__ == "__main__":
-    pass
+    path='G:\data\ML_samples\plasticbottle sample\sample'
+    imglist=os.listdir(path)
+    for img in imglist:
+
+        image = cv2.imread(os.path.join(path,img))
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        corners,mandrill=edges_corners(image)
+        fig = plt.figure()
+        plt.gray()
+        plt.imshow(image)
+        y_corner, x_corner = zip(*corners)
+        plt.plot(x_corner, y_corner, 'or')
+        plt.xlim(0, image.shape[1])
+        plt.ylim(image.shape[0], 0)
+        fig.set_size_inches(np.array(fig.get_size_inches()) * 2)
+        plt.show()
