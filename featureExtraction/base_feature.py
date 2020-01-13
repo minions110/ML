@@ -1,13 +1,13 @@
 from featureExtraction.colorFeature import *
 from featureExtraction.marginFeature import *
 import cv2
-def HOG(image):
-    img=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-    hog1 = Hog_descriptor(img.copy(), cell_size=8, bin_size=8)
-    vector, hist = hog1.extract()
-    return (hist / 255).flatten()
 def Hog(image):
-    hist = Hogdescriptor(image)
+    img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    hist = Hog_descriptor(img)
+    return (hist / 255).flatten()
+def Lbp(image):
+    img=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+    hist=Lbp_descriptor(img)
     return (hist / 255).flatten()
 def histogram(image):
     hist=color_histogram(image)
