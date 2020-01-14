@@ -6,21 +6,32 @@ def cutout(imgpath,txtlist,txtpath,savepath):
         os.mkdir(savepath)
     pathlist=[]
     for txtfile in txtlist:
+        print(txtfile)
         pointdict={}
         if '.txt' in txtfile:
             image=txtfile[0:-4]+'.jpg'
             if image not in os.listdir(imgpath):
                 continue
             img=cv2.imread(os.path.join(imgpath,image))
+            h,w,_=img.shape
             file=open(os.path.join(txtpath,txtfile),'r')
             for idx,line in enumerate(file):
                 line=line.replace('\n','').split(' ')
                 if line[0] not in pointdict:
                     pointdict[line[0]]=[]
                 if len(line)==5:
-                    img1=img[int(line[2]):int(line[4]),int(line[1]):int(line[3])]
-                if len(line)==6:
-                    img1 = img[int(line[3]):int(line[5]), int(line[2]):int(line[4])]
+                    y1= 0 if int(line[2])<0 else int(line[2])
+                    y2=h if int(line[4])>h else int(line[4])
+                    x1 =  0 if int(line[1])<0 else int(line[1])
+                    x2 = w if int(line[3])>w else int(line[3])
+                elif len(line)==6:
+                    y1 = 0 if int(line[3])<0 else int(line[3])
+                    y2 = h if int(line[5])>h else int(line[5])
+                    x1 = 0 if int(line[2])<0 else int(line[2])
+                    x2 = w if int(line[4])>w else int(line[4])
+                else:
+                    raise Exception("File {}:The row elements are {}".format(image, len(line)))
+                img1 = img[y1:y2, x1:x2]
                 save = os.path.join(savepath, line[0][0:4])
                 if not os.path.exists(save):
                     os.mkdir(save)
@@ -60,11 +71,11 @@ def getsplit(ii, nu):
         res.append(ii[i:i+nper])
     return res
 if __name__ == '__main__':
-    imgpath='C:/Users/zkteco/Desktop/test/img'
-    txtpath='C:/Users/zkteco/Desktop/test/test_result'
-    savepath='C:/Users/zkteco/Desktop/test/cutout'
+    imgpath='E:\dataset/1807data'
+    txtpath='E:\dataset/1cls_lip\m_v3_5.9_resnet50_lpf_epoch30_010309/test_result'
+    savepath='E:\dataset/1cls_lip\m_v3_5.9_resnet50_lpf_epoch30_010309/cutout1'
     txtlist=os.listdir(txtpath)
-    numofProcess = 20
+    numofProcess = 1
     multi_processing_datas = getsplit(txtlist, numofProcess)
     plist = []
     for pdata in multi_processing_datas:
